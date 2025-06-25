@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Improved backdrop blur support */
+@supports (backdrop-filter: blur(12px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Custom scrollbar for modal */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Fade-in animation for hero content */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Slide transition effects */
+.slide-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1000ms, transform 1000ms;
+}
+
+.slide-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1000ms, transform 1000ms;
+}
+
+/* Hero hover effects */
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-bar {
+  animation: progress 6s linear infinite;
+}
